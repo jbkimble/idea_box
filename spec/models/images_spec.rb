@@ -18,4 +18,8 @@ describe Images do
       end
     end
   end
+
+  # describe "Relationships" do
+  #   it "can respond to ideas"
+  # end
 end

@@ -36,6 +36,13 @@ describe Idea do
 
       expect(idea.category.name).to eq("Fun")
     end
+
+    it "has many images" do
+      user = User.create(name: "Jon")
+      idea = user.ideas.new(title: "Best idea ever")
+
+      expect(idea).to respond_to(:images)
+    end
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026042919) do
+ActiveRecord::Schema.define(version: 20161026193854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20161026042919) do
   end
 
   create_table "ideas_images", force: :cascade do |t|
-    t.integer "idea_id",  null: false
-    t.integer "image_id", null: false
+    t.integer "idea_id"
+    t.integer "image_id"
+    t.index ["idea_id"], name: "index_ideas_images_on_idea_id", using: :btree
+    t.index ["image_id"], name: "index_ideas_images_on_image_id", using: :btree
   end
 
   create_table "images", force: :cascade do |t|
@@ -50,4 +52,6 @@ ActiveRecord::Schema.define(version: 20161026042919) do
 
   add_foreign_key "ideas", "categories"
   add_foreign_key "ideas", "users"
+  add_foreign_key "ideas_images", "ideas"
+  add_foreign_key "ideas_images", "images"
 end
