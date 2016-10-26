@@ -1,0 +1,9 @@
+<h1>Here are all your ideas</h1>
+
+<% @ideas.each do |idea| %>
+  <%= link_to idea.title, user_idea_path(@user, idea)  %> <br>
+  <%= idea.description %> <br>
+  <%= idea.notes %> <br>
+  <%= idea.category.name %> <br> <br>
+
+<% end %>

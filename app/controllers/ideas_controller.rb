@@ -19,6 +19,37 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
+
+  def index
+    @user = User.find(params[:user_id])
+    @ideas = @user.ideas
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    idea = Idea.find(params[:id])
+    idea.delete
+    redirect_to user_ideas_path(@user)
+  end
+
+  def edit
+    @idea = Idea.find(params[:id])
+    @user = User.find(params[:user_id])
+    @categories = Category.all
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    @user = User.find(params[:user_id])
+    @idea.update(idea_params)
+
+    if @idea.save
+      redirect_to user_idea_path(@user, @idea)
+    else
+      render :edit
+    end
   end
 
   private

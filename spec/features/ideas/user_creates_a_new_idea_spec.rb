@@ -13,11 +13,9 @@ describe "User creates a new idea" do
 
     click_button "Create"
 
-    save_and_open_page
     expect(current_path).to eq("/users/#{user.id}/ideas/#{Idea.last.id}")
     expect(page).to have_content("Carve a birthday cake masterpiece!")
     expect(page).to have_content("nuf' said")
     expect(page).to have_content("Chocolate cake!")
   end
-
 end
