@@ -3,4 +3,5 @@ class Idea < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :user
+  has_many :ideas_images
 end

@@ -9,5 +9,13 @@ describe Images do
         expect(img).to be_invalid
       end
     end
+
+    context "valid with attributes" do
+      it "is valid with url" do
+        img = Image.new(url: "yayayyyaya.com")
+
+        expect(img).to be_valid
+      end
+    end
   end
 end
