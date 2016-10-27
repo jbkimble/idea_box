@@ -7,10 +7,9 @@ describe "New user can sign up" do
     fill_in "Name", with: "Jon"
     fill_in "Email", with: "J@gmail.com"
     fill_in "Password", with: "123"
-    fill_in "password_confirmation"
+    fill_in "Password confirmation", with: "123"
     click_on "Create User"
-    
-    expect(current_path).to eq(user_path(User.last))
 
+    expect(current_path).to eq(user_path(User.last))
     end
 end

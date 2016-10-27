@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User edits idea" do
   scenario "user can edit an idea" do
-    user = User.create(name: "Jon")
+    user = User.create(name: "Jon", password: "123")
     cat1 = Category.create(name: "Fun")
 
     visit new_user_idea_path(user)

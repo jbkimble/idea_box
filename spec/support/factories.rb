@@ -3,5 +3,8 @@ FactoryGirl.define do
     sequence :name do |n|
       "name #{n}"
     end
-  end    
+    sequence :password do |n|
+      "hellp#{n}"
+    end
+  end
 end

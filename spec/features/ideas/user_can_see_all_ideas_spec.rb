@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User can see all ideas" do
   scenario "a user can see all their ideas" do
-    user = User.create(name: "Jon")
+    user = User.create(name: "Jon", password: "123")
     cat = Category.create(name: "Fun")
     user.ideas.create(title: "bake", description: "cook", notes:"mmmm yum", category_id: cat.id)
     user.ideas.create(title: "run", description: "Workout", notes: "sweat", category_id: cat.id)
