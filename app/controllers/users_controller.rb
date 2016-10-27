@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def root
+    render :root
+  end
+
   def new
     @user = User.new
   end
