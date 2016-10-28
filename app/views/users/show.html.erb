@@ -1,1 +1,6 @@
 <h1> Welcome <%= @user.name %> </h1>
+
+<% if @user.role == 1 %>
+  <h3> Hello Admin click below to view and add a categories </h3>
+   <%= link_to "Add Category", admin_categories_path %>
+<% end %>

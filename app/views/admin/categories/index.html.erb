@@ -1,0 +1,8 @@
+<h1> Admin Categories </h1>
+
+  <% @categories.each do |category| %>
+    <p><%= category.name %></p> <br>
+<% end %>
+
+<%= link_to "Add Category", new_admin_category_path %>
+<!-- why can't this link to where I want it to go? -->
