@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin1 = User.create(name:"Jon", email: "jbk@gmail.com", password: "123", password_confirmation: "123", role: 1) 
+admin1 = User.create(name:"Jon", email: "jbk@gmail.com", password: "123", password_confirmation: "123", role: 1)
 
 cat1 = Category.create(name: "Business")
 cat2 = Category.create(name: "Fun")
@@ -21,6 +21,7 @@ user1 = User.create!(name: "Jon", email: "J@gmail.com", password: "123")
   user1.ideas.create(title: "Moon Base", description: "Workout", notes: "visit here", category_id: cat2.id)
   user1.ideas.create(title: "Enterprise Software App", description: "cook", notes:"okaly doakly", category_id: cat2.id)
   user1.ideas.create(title: "Uber for cats", description: "Workout", notes: "plop", category_id: cat4.id)
+  user1.ideas.create(title: "Moonbase for cats", description: "meow meow meow", notes:"plausability index of 15000", category_id: cat1.id)
 
 user2 = User.create!(name: "Jack", email: "Jack@gmail.com", password: "123")
   user2.ideas.create(title: "Jumping jack shoes", description: "change", notes:"boop", category_id: cat1.id)

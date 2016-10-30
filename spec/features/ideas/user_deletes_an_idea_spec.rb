@@ -14,6 +14,7 @@ require 'rails_helper'
         click_link "Delete"
 
         expect(current_path).to eq(user_ideas_path(user))
+        save_and_open_page
         expect(page).to_not have_content("Carve a birthday cake masterpiece!")
       end
 

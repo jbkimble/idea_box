@@ -11,8 +11,10 @@ class IdeasController < ApplicationController
     @idea = @user.ideas.new(idea_params)
     @idea.category_id = params[:idea][:category_id].to_i
     if @idea.save
-      redirect_to user_idea_path(@user, @idea)
+      flash[:success] = "Wow what a great idea!"
+      redirect_to user_path(@user)
     else
+      flash[:error] = "Hmmm that didn't save for some reason, please try again"
       redirect_to new_user_idea_path(@user)
     end
   end
@@ -31,7 +33,7 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     idea = Idea.find(params[:id])
     idea.delete
-    redirect_to user_ideas_path(@user)
+    redirect_to user_path(@user)
   end
 
   def edit

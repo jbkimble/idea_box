@@ -1,6 +1,25 @@
 <h1> Welcome <%= @user.name %> </h1>
+  <h3>Here are your wonderful ideas:</h3>
+
+
+<% @user.ideas.sort_by_category.each do |idea| %>
+<!-- add photo to idea -->
+
+  <strong> <%= idea.category.name.upcase %> IDEA: </strong>
+  <%= link_to idea.title, user_idea_path(@user, idea)  %> <br>
+
+DESCRIPTION:  <%= idea.description %> <br>
+NOTES:  <%= idea.notes %> <br>
+
+<%= link_to "Edit", edit_user_idea_path(@user, idea)%>
+<%= link_to "Delete Idea", user_idea_path(@user, idea), method: "delete" %> <br> <br>
+<% end %>
+
+<%= link_to "Add New Idea", new_user_idea_path(@user) %>
 
 <% if @user.role == 1 %>
-  <h3> Hello Admin click below to view and add a categories </h3>
-   <%= link_to "Add Category", admin_categories_path %>
+<h3> Hello Admin click below to view and add a categories </h3>
+<%= link_to "Add Category", admin_categories_path %>
 <% end %>
+<!-- relevant links to other areas of the site -->
+ <!-- 1. Add lots of links back to idea index -->
