@@ -7,9 +7,8 @@
 
   <strong> <%= idea.category.name.upcase %> IDEA: </strong>
   <%= link_to idea.title, user_idea_path(@user, idea)  %> <br>
-
-DESCRIPTION:  <%= idea.description %> <br>
-NOTES:  <%= idea.notes %> <br>
+    DESCRIPTION:  <%= idea.description %> <br>
+    NOTES:  <%= idea.notes %> <br>
 
 <%= link_to "Edit", edit_user_idea_path(@user, idea)%>
 <%= link_to "Delete Idea", user_idea_path(@user, idea), method: "delete" %> <br> <br>
@@ -17,9 +16,7 @@ NOTES:  <%= idea.notes %> <br>
 
 <%= link_to "Add New Idea", new_user_idea_path(@user) %>
 
-<% if @user.role == 1 %>
+<% if @user.role == "admin" %>
 <h3> Hello Admin click below to view and add a categories </h3>
 <%= link_to "Add Category", admin_categories_path %>
 <% end %>
-<!-- relevant links to other areas of the site -->
- <!-- 1. Add lots of links back to idea index -->
